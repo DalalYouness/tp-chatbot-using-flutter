@@ -1,4 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+
 class ChatBotPage extends StatefulWidget {
    ChatBotPage({super.key});
 
@@ -22,6 +27,13 @@ class _ChatBotPageState extends State<ChatBotPage> {
         style: TextStyle(color: Colors.white),
       ),
       backgroundColor: Theme.of(context).primaryColor,
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.of(context).pop();
+            Navigator.pushNamed(context, "/");
+          }, icon: Icon(Icons.logout),
+          color: Theme.of(context).indicatorColor,)
+        ],
     ),
     body: Column(
       children: [
@@ -80,7 +92,28 @@ class _ChatBotPageState extends State<ChatBotPage> {
                 ),
               ),
               IconButton(onPressed: (){
+
                 String question = userController.text;
+                //Uri uri = Uri.https("","");
+                Uri uri = Uri.parse("http://localhost:11434/v1/chat/completions");
+                var headers = {
+                  "Content-Type":"application/json"
+                };
+
+                var body = {
+                  "model": "gemma:2b" , "messages": [
+                    {"role": "user" , "content" : question}
+                  ]
+                };
+                http.post(uri,headers: headers, body: json.encode(body))
+                .then((resp){
+                  
+                }).catchError((err){
+                  print(err);
+                });
+                
+                
+                
                 String response = "response to ${question}";
                 setState(() {
 

@@ -12,13 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
+        "/": (context)=>LoginPage(),
         "/bot": (context)=>ChatBotPage()
       },
       theme: ThemeData(
         primaryColor: Colors.teal
       ),
-      home: LoginPage(),
     );
   }
 }
