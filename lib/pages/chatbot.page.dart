@@ -18,7 +18,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
    ];
 
    TextEditingController userController = TextEditingController();
-
+    ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +39,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
       children: [
         Expanded(
           child: ListView.builder(
+            controller: ScrollController(),
             itemCount: messages.length,
             itemBuilder: (context,index) {
                 return Column(
@@ -107,19 +108,20 @@ class _ChatBotPageState extends State<ChatBotPage> {
                 };
                 http.post(uri,headers: headers, body: json.encode(body))
                 .then((resp){
-                  
+                  var aiResponse = json.decode(resp.body);
+                  String answer = aiResponse['choices'][0]['message']['content'];
+                  setState(() {
+                    messages.add({"type" : "user" , "content" : question});
+                    messages.add({"type" : "assistant" , "content" : answer});
+                    scrollController.jumpTo(
+                      scrollController.position.maxScrollExtent + 800
+                    );
+                  });
                 }).catchError((err){
                   print(err);
                 });
-                
-                
-                
-                String response = "response to ${question}";
-                setState(() {
 
-                });
-                messages.add({"type" : "user" , "content" : question});
-                messages.add({"type" : "assistant" , "content" : response});
+
 
 
               },
