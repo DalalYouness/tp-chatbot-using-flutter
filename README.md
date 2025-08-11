@@ -1,16 +1,16 @@
 # app_bot
 
-A new Flutter project.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a880f2db-78a0-4d67-8a48-c6006f7ecdf9" width="300" style="margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/f45cd4d5-bacb-4a7b-8efd-819cdb2bdcb4" width="260" style="margin-left: 20px;" />
+</p>
 
-## Getting Started
+## 📌 Description
+**app_bot** is a simple Flutter application that allows you to interact with a local ChatBot powered by Ollama.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Features
+- Simple login interface
+- Chat interface between the user and the assistant
+- Connects to Ollama API locally
