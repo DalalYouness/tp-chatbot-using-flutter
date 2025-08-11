@@ -13,8 +13,7 @@ class ChatBotPage extends StatefulWidget {
 
 class _ChatBotPageState extends State<ChatBotPage> {
    var messages = [
-     {"type" : "user" , "content" : "Bonjour"},
-     {"type" : "assistant" , "content" : "Salut Que puis-je faire pour vous"},
+
    ];
 
     TextEditingController userController = TextEditingController();
@@ -46,20 +45,20 @@ class _ChatBotPageState extends State<ChatBotPage> {
                   children: [
                     Row(
                       children: [
-                        messages[index]['type'] == 'user' ?
+                        messages[index]['role'] == 'user' ?
                             SizedBox(width: 80,)
                         :  SizedBox(width: 0,),
                         Expanded(
                           child: Card.outlined(
                             margin: EdgeInsets.all(6),
-                            color: messages[index]['type'] == 'user'? Color.fromARGB(60,0,255,0)
+                            color: messages[index]['role'] == 'user'? Color.fromARGB(60,0,255,0)
                                 : Colors.white ,
                             child: ListTile(
                               title: Text("${messages[index]['content']}"),
                             ),
                           ),
                         ),
-                        messages[index]['type'] == 'assistant' ?
+                        messages[index]['role'] == 'assistant' ?
                         SizedBox(width: 80,)
                             :  SizedBox(width: 0,),
                       ],
@@ -101,23 +100,22 @@ class _ChatBotPageState extends State<ChatBotPage> {
                   "Content-Type":"application/json"
                 };
 
+                messages.add( {"role": "user" , "content" : question});
                 var body = {
-                  "model": "gemma:2b" , "messages": [
-                    {"role": "user" , "content" : question}
-                  ]
+                  "model": "gemma:2b" , "messages":messages
                 };
                 http.post(uri,headers: headers, body: json.encode(body))
                 .then((resp){
                   var aiResponse = json.decode(resp.body);
                   String answer = aiResponse['choices'][0]['message']['content'];
                   setState(() {
-                    messages.add({"type" : "user" , "content" : question});
-                    messages.add({"type" : "assistant" , "content" : answer});
+                    messages.add({"role" : "user" , "content" : question});
+                    messages.add({"role" : "assistant" , "content" : answer});
                     scrollController.jumpTo(
                       scrollController.position.maxScrollExtent + 800
                     );
                   });
-                }).catchError((err){
+                  userController.text = "";               }).catchError((err){
                   print(err);
                 });
 
