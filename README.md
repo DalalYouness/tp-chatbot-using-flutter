@@ -1,16 +1,5 @@
 # app_bot
 
-A new Flutter project.
+<img width="289" height="543" alt="login" src="https://github.com/user-attachments/assets/a880f2db-78a0-4d67-8a48-c6006f7ecdf9" />
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="194" height="423" alt="convers" src="https://github.com/user-attachments/assets/f45cd4d5-bacb-4a7b-8efd-819cdb2bdcb4" />
