@@ -17,7 +17,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
      {"type" : "assistant" , "content" : "Salut Que puis-je faire pour vous"},
    ];
 
-   TextEditingController userController = TextEditingController();
+    TextEditingController userController = TextEditingController();
     ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
       children: [
         Expanded(
           child: ListView.builder(
-            controller: ScrollController(),
+            controller: scrollController,
             itemCount: messages.length,
             itemBuilder: (context,index) {
                 return Column(
@@ -120,9 +120,6 @@ class _ChatBotPageState extends State<ChatBotPage> {
                 }).catchError((err){
                   print(err);
                 });
-
-
-
 
               },
                   icon: Icon(Icons.send))
