@@ -1,7 +1,16 @@
 # app_bot
 
-<img width="289" height="543" alt="login" src="https://github.com/user-attachments/assets/a880f2db-78a0-4d67-8a48-c6006f7ecdf9" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a880f2db-78a0-4d67-8a48-c6006f7ecdf9" width="300" />
+  <img src="https://github.com/user-attachments/assets/f45cd4d5-bacb-4a7b-8efd-819cdb2bdcb4" width="300" />
+</p>
 
+## 📌 Description
+**app_bot** is a simple Flutter application that allows you to interact with a local ChatBot powered by Ollama.
 
+---
 
-<img width="194" height="423" alt="convers" src="https://github.com/user-attachments/assets/f45cd4d5-bacb-4a7b-8efd-819cdb2bdcb4" />
+## 🚀 Features
+- Simple login interface
+- Chat interface between the user and the assistant
+- Connects to Ollama API locally
